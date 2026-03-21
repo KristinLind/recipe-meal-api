@@ -3,12 +3,18 @@ import dotenv from "dotenv";
 import { connectDB } from "./database/connection.js";
 import recipeRoutes from "./routes/recipes.js";
 import swaggerUi from "swagger-ui-express";
-import swaggerDocument from "./swagger.json" assert { type: "json" };
+import fs from "fs";
+import path from "path";
+
+const swaggerDocument = JSON.parse(
+  fs.readFileSync(path.resolve("./swagger.json"), "utf-8")
+);
 
 dotenv.config();
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
+
 
 // Middleware
 app.use(express.json());
