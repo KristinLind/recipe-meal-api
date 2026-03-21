@@ -1,0 +1,88 @@
+### ========================
+### Test 1 - Create Recipes
+### ========================
+### Create Recipe 1
+POST http://localhost:3000/recipes
+Content-Type: application/json
+
+{
+  "name": "Spaghetti",
+  "ingredients": ["pasta", "tomato sauce"],
+  "instructions": "Boil pasta and add sauce",
+  "cookTime": 20,
+  "difficulty": "Easy",
+  "servings": 4,
+  "category": "Dinner"
+}
+
+### Create Recipe 2
+POST http://localhost:3000/recipes
+Content-Type: application/json
+
+{
+  "name": "Pancakes",
+  "ingredients": ["flour", "milk", "eggs"],
+  "instructions": "Mix and cook on griddle",
+  "cookTime": 15,
+  "difficulty": "Easy",
+  "servings": 3,
+  "category": "Breakfast"
+}
+
+### Create Recipe 3
+POST http://localhost:3000/recipes
+Content-Type: application/json
+
+{
+  "name": "Salad",
+  "ingredients": ["lettuce", "tomato", "cucumber"],
+  "instructions": "Chop and mix",
+  "cookTime": 10,
+  "difficulty": "Easy",
+  "servings": 2,
+  "category": "Lunch"
+}
+
+### Create Recipe 4
+POST http://localhost:3000/recipes
+Content-Type: application/json
+
+{
+  "name": "Chicken Alfredo",
+  "ingredients": ["chicken", "pasta"],
+  "instructions": "Cook it",
+  "cookTime": 30,
+  "difficulty": "Medium",
+  "servings": 4,
+  "category": "Dinner"
+}
+
+### =========================
+#### Test 2 - Get All Recipes
+### =========================
+GET http://localhost:3000/recipes
+
+### =========================
+### TEST 4 - UPDATE RECIPE
+### =========================
+
+PUT http://localhost:3000/recipes/69be16d4b42be66f41c17c0c
+Content-Type: application/json
+
+{
+  "name": "Updated Chicken Alfredo",
+  "ingredients": ["chicken", "pasta"],
+  "instructions": "Cook it better",
+  "cookTime": 35,
+  "difficulty": "Medium",
+  "servings": 4,
+  "category": "Dinner"
+}
+
+###
+
+### =========================
+### TEST 5 - DELETE RECIPE
+### =========================
+
+DELETE http://localhost:3000/recipes/69be17d4b42be66f41c17c11
