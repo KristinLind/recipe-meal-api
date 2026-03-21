@@ -1,0 +1,33 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Recipe API",
+    "version": "1.0.0",
+    "description": "API documentation for Recipe project"
+  },
+  "servers": [
+    {
+      "url": "https://cse341-node-r9gw.onrender.com"
+    }
+  ],
+  "paths": {
+    "/recipes": {
+      "get": {
+        "summary": "Get all recipes",
+        "responses": {
+          "200": {
+            "description": "List of recipes"
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a recipe",
+        "responses": {
+          "201": {
+            "description": "Recipe created"
+          }
+        }
+      }
+    }
+  }
+}
