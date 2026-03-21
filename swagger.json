@@ -3,7 +3,7 @@
   "info": {
     "title": "Recipe API",
     "version": "1.0.0",
-    "description": "API documentation for Recipe project"
+    "description": "Recipe API documentation"
   },
   "servers": [
     {
@@ -16,7 +16,7 @@
         "summary": "Get all recipes",
         "responses": {
           "200": {
-            "description": "List of recipes"
+            "description": "Successful response"
           }
         }
       },
