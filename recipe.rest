@@ -2,7 +2,7 @@
 ### Test 1 - Create Recipes
 ### ========================
 ### Create Recipe 1
-POST http://localhost:3000/recipes
+POST https://cse341-node-r9gw.onrender.com/recipes
 Content-Type: application/json
 
 {
@@ -16,7 +16,7 @@ Content-Type: application/json
 }
 
 ### Create Recipe 2
-POST http://localhost:3000/recipes
+POST https://cse341-node-r9gw.onrender.com/recipes
 Content-Type: application/json
 
 {
@@ -30,7 +30,7 @@ Content-Type: application/json
 }
 
 ### Create Recipe 3
-POST http://localhost:3000/recipes
+POST https://cse341-node-r9gw.onrender.com/recipes
 Content-Type: application/json
 
 {
@@ -44,7 +44,7 @@ Content-Type: application/json
 }
 
 ### Create Recipe 4
-POST http://localhost:3000/recipes
+POST https://cse341-node-r9gw.onrender.com/recipes
 Content-Type: application/json
 
 {
@@ -60,13 +60,14 @@ Content-Type: application/json
 ### =========================
 #### Test 2 - Get All Recipes
 ### =========================
-GET http://localhost:3000/recipes
+GET https://cse341-node-r9gw.onrender.com/recipes
+Content-Type: application/json
 
 ### =========================
 ### TEST 4 - UPDATE RECIPE
 ### =========================
 
-PUT http://localhost:3000/recipes/69be16d4b42be66f41c17c0c
+PUT https://cse341-node-r9gw.onrender.com/recipes/69be16d4b42be66f41c17c0c
 Content-Type: application/json
 
 {
