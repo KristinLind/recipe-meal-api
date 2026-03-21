@@ -15,30 +15,25 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-
-// Middleware
+// Middleware FIRST
 app.use(express.json());
-
-app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
-
-// LOGGING FIRST (optional but helpful)
-app.use("/recipes", (req, res, next) => {
-  console.log("HIT /recipes route");
-  next();
-});
-
-// ROUTES
-app.use("/recipes", recipeRoutes);
 
 // Root route
 app.get("/", (req, res) => {
   res.send("Recipe API is running");
 });
 
-// Test route (fine to keep)
-app.post("/test", (req, res) => {
-  res.send("POST WORKS");
+// Logging BEFORE routes
+app.use("/recipes", (req, res, next) => {
+  console.log("HIT /recipes route");
+  next();
 });
+
+// Routes
+app.use("/recipes", recipeRoutes);
+
+// Swagger LAST
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 // Connect to DB
 connectDB();
