@@ -1,31 +1,74 @@
-{
-  "openapi": "3.0.0",
-  "info": {
-    "title": "Recipe API",
-    "version": "1.0.0",
-    "description": "Recipe API documentation"
-  },
-  "servers": [
-    {
-      "url": "https://cse341-node-r9gw.onrender.com"
+"paths": {
+  "/recipes": {
+    "get": {
+      "summary": "Get all recipes",
+      "responses": {
+        "200": {
+          "description": "List of recipes"
+        }
+      }
+    },
+    "post": {
+      "summary": "Create a recipe",
+      "responses": {
+        "201": {
+          "description": "Recipe created"
+        }
+      }
     }
-  ],
-  "paths": {
-    "/recipes": {
-      "get": {
-        "summary": "Get all recipes",
-        "responses": {
-          "200": {
-            "description": "Successful response"
+  },
+  "/recipes/{id}": {
+    "get": {
+      "summary": "Get a single recipe",
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
           }
         }
-      },
-      "post": {
-        "summary": "Create a recipe",
-        "responses": {
-          "201": {
-            "description": "Recipe created"
+      ],
+      "responses": {
+        "200": {
+          "description": "Single recipe"
+        }
+      }
+    },
+    "put": {
+      "summary": "Update a recipe",
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
           }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "Recipe updated"
+        }
+      }
+    },
+    "delete": {
+      "summary": "Delete a recipe",
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "Recipe deleted"
         }
       }
     }
