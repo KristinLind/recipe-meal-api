@@ -2,6 +2,8 @@ import express from "express";
 import dotenv from "dotenv";
 import { connectDB } from "./database/connection.js";
 import recipeRoutes from "./routes/recipes.js";
+import swaggerUi from "swagger-ui-express";
+import swaggerDocument from "./swagger.json" assert { type: "json" };
 
 dotenv.config();
 
@@ -11,13 +13,15 @@ const PORT = 3000;
 // Middleware
 app.use(express.json());
 
-// 🔹 LOGGING FIRST (optional but helpful)
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+
+// LOGGING FIRST (optional but helpful)
 app.use("/recipes", (req, res, next) => {
   console.log("HIT /recipes route");
   next();
 });
 
-// 🔹 ROUTES
+// ROUTES
 app.use("/recipes", recipeRoutes);
 
 // Root route
