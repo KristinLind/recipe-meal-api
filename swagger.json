@@ -71,24 +71,47 @@
           }
         }
       },
-      "put": {
-        "summary": "Update a recipe",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
+"put": {
+  "summary": "Update a recipe",
+  "parameters": [
+    {
+      "name": "id",
+      "in": "path",
+      "required": true,
+      "schema": {
+        "type": "string"
+      }
+    }
+  ],
+  "requestBody": {
+    "required": true,
+    "content": {
+      "application/json": {
+        "schema": {
+          "type": "object",
+          "properties": {
+            "name": { "type": "string" },
+            "ingredients": {
+              "type": "array",
+              "items": { "type": "string" }
+                },
+                "instructions": { "type": "string" },
+                "cookTime": { "type": "number" },
+                "difficulty": { "type": "string" },
+                "servings": { "type": "number" },
+                "category": { "type": "string" }
+                },
+                "required": ["name", "ingredients", "instructions"]
+                }
+                }
+             }
+            },
+            "responses": {
+            "200": {
             "description": "Recipe updated"
-          }
+            }
         }
-      },
+    },
       "delete": {
         "summary": "Delete a recipe",
         "parameters": [
