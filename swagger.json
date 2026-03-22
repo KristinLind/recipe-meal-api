@@ -20,15 +20,37 @@
           }
         }
       },
-      "post": {
+     "post": {
         "summary": "Create a recipe",
+        "requestBody": {
+            "required": true,
+            "content": {
+            "application/json": {
+                "schema": {
+                "type": "object",
+                "properties": {
+                    "name": { "type": "string" },
+                    "ingredients": {
+                    "type": "array",
+                    "items": { "type": "string" }
+                    },
+                    "instructions": { "type": "string" },
+                    "cookTime": { "type": "number" },
+                    "difficulty": { "type": "string" },
+                    "servings": { "type": "number" },
+                    "category": { "type": "string" }
+                },
+                "required": ["name", "ingredients", "instructions"]
+                }
+            }
+            }
+        },
         "responses": {
-          "201": {
+            "201": {
             "description": "Recipe created"
-          }
+            }
         }
-      }
-    },
+        },
     "/recipes/{id}": {
       "get": {
         "summary": "Get a single recipe",
