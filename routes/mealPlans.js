@@ -1,75 +1,62 @@
 import express from "express";
 import {
-  getAllRecipes,
-  getSingleRecipe,
-  createRecipe,
-  updateRecipe,
-  deleteRecipe
-} from "../controllers/recipeController.js";
-import {
-  recipeValidationRules,
-  validate
-} from "../middleware/validateRecipes.js"; 
+  getAllMealPlans,
+  getSingleMealPlan,
+  createMealPlan,
+  updateMealPlan,
+  deleteMealPlan
+} from "../controllers/mealPlanController.js";
 
 const router = express.Router();
-console.log("Recipes routes loaded");
 
 /**
- * #swagger.tags = ['Recipes']
- * #swagger.summary = 'Get all recipes'
+ * #swagger.tags = ['MealPlans']
+ * #swagger.summary = 'Get all meal plans'
  */
-app.use("/recipes", recipeRoutes);
-router.get("/", getAllRecipes);
+router.get("/", getAllMealPlans);
 
 /**
- * #swagger.tags = ['Recipes']
- * #swagger.summary = 'Get a single recipe by ID'
+ * #swagger.tags = ['MealPlans']
+ * #swagger.summary = 'Get a single meal plan by ID'
  */
-router.get("/:id", getSingleRecipe);
+router.get("/:id", getSingleMealPlan);
 
 /**
- * #swagger.tags = ['Recipes']
- * #swagger.summary = 'Create a new recipe'
+ * #swagger.tags = ['MealPlans']
+ * #swagger.summary = 'Create a meal plan'
  * #swagger.parameters['body'] = {
  *   in: 'body',
- *   description: 'Recipe object',
  *   required: true,
  *   schema: {
- *     name: "Chicken Alfredo",
- *     ingredients: ["chicken", "pasta"],
- *     instructions: "Cook it",
- *     cookTime: 30,
- *     difficulty: "Medium",
- *     servings: 4,
- *     category: "Dinner"
+ *     day: "Monday",
+ *     mealType: "Dinner",
+ *     recipeId: "PUT_REAL_RECIPE_ID",
+ *     notes: "Family favorite"
  *   }
  * }
  */
-router.post("/", recipeValidationRules(), validate, createRecipe);
+router.post("/", createMealPlan);
 
 /**
- * #swagger.tags = ['Recipes']
- * #swagger.summary = 'Update a recipe'
+ * #swagger.tags = ['MealPlans']
+ * #swagger.summary = 'Update a meal plan'
  * #swagger.parameters['body'] = {
  *   in: 'body',
- *   description: 'Updated recipe',
  *   required: true,
  *   schema: {
- *     name: "Updated Recipe",
- *     ingredients: ["new"],
- *     instructions: "Updated instructions"
+ *     day: "Tuesday",
+ *     mealType: "Lunch",
+ *     recipeId: "PUT_REAL_RECIPE_ID",
+ *     notes: "Updated note"
  *   }
  * }
  */
-router.put("/:id", recipeValidationRules(), validate, updateRecipe);
+router.put("/:id", updateMealPlan);
 
 /**
- * #swagger.tags = ['Recipes']
- * #swagger.summary = 'Delete a recipe'
- * #swagger.responses[200] = {
- *   description: 'Recipe deleted successfully'
- * }
+ * #swagger.tags = ['MealPlans']
+ * #swagger.summary = 'Delete a meal plan'
  */
-router.delete("/:id", deleteRecipe);
+router.delete("/:id", deleteMealPlan);
 
 export default router;
