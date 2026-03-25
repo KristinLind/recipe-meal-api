@@ -29,19 +29,24 @@ router.get("/:id", getSingleRecipe);
 /**
  * #swagger.tags = ['Recipes']
  * #swagger.summary = 'Create a new recipe'
- * #swagger.parameters['body'] = {
- *   in: 'body',
- *   description: 'Recipe object',
+ * #swagger.requestBody = {
  *   required: true,
- *   schema: {
-        "name": "Chicken Alfredo",
-        "ingredients": ["chicken", "pasta", "cream", "parmesan"],
-        "instructions": "Cook pasta, prepare sauce, combine",
-        "cookTime": 30,
-        "difficulty": "Medium",
-        "servings": 4,
-        "category": "Dinner"
-      }
+ *   content: {
+ *     "application/json": {
+ *       schema: {
+ *         type: "object",
+ *         properties: {
+ *           name: { type: "string" },
+ *           ingredients: { type: "array", items: { type: "string" } },
+ *           instructions: { type: "string" },
+ *           cookTime: { type: "number" },
+ *           difficulty: { type: "string" },
+ *           servings: { type: "number" },
+ *           category: { type: "string" }
+ *         }
+ *       }
+ *     }
+ *   }
  * }
  */
 router.post("/", recipeValidationRules(), validate, createRecipe);
@@ -49,13 +54,20 @@ router.post("/", recipeValidationRules(), validate, createRecipe);
 /**
  * #swagger.tags = ['Recipes']
  * #swagger.summary = 'Update a recipe'
- * #swagger.parameters['body'] = {
- *   in: 'body',
- *   description: 'Updated recipe data',
+ * #swagger.requestBody = {
  *   required: true,
- *   schema: {
-        "difficulty": "Easy"
-      }
+ *   content: {
+ *     "application/json": {
+ *       schema: {
+ *         type: "object",
+ *         properties: {
+ *           name: { type: "string" },
+ *           ingredients: { type: "array", items: { type: "string" } },
+ *           instructions: { type: "string" }
+ *         }
+ *       }
+ *     }
+ *   }
  * }
  */
 router.put("/:id", recipeValidationRules(), validate, updateRecipe);

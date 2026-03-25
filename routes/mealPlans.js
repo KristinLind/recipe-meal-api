@@ -24,14 +24,20 @@ router.get("/:id", getSingleMealPlan);
 /**
  * #swagger.tags = ['MealPlans']
  * #swagger.summary = 'Create a new meal plan'
- * #swagger.parameters['body'] = {
- *   in: 'body',
+ * #swagger.requestBody = {
  *   required: true,
- *   schema: {
- *     day: "Monday",
- *     mealType: "Dinner",
- *     recipeId: "PUT_REAL_RECIPE_ID_HERE",
- *     notes: "Family favorite"
+ *   content: {
+ *     "application/json": {
+ *       schema: {
+ *         type: "object",
+ *         properties: {
+ *           day: { type: "string" },
+ *           mealType: { type: "string" },
+ *           recipeId: { type: "string" },
+ *           notes: { type: "string" }
+ *         }
+ *       }
+ *     }
  *   }
  * }
  */
