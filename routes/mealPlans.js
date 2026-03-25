@@ -22,26 +22,20 @@ router.get("/", getAllMealPlans);
 router.get("/:id", getSingleMealPlan);
 
 /**
- * #swagger.tags = ['MealPlans']
- * #swagger.summary = 'Create a new meal plan'
- * #swagger.requestBody = {
+ * #swagger.tags = ['Recipes']
+ * #swagger.summary = 'Update a recipe'
+ * #swagger.parameters['body'] = {
+ *   in: 'body',
+ *   description: 'Updated recipe',
  *   required: true,
- *   content: {
- *     "application/json": {
- *       schema: {
- *         type: "object",
- *         properties: {
- *           day: { type: "string" },
- *           mealType: { type: "string" },
- *           recipeId: { type: "string" },
- *           notes: { type: "string" }
- *         }
- *       }
- *     }
+ *   schema: {
+ *     name: "Updated Recipe",
+ *     ingredients: ["new"],
+ *     instructions: "Updated instructions"
  *   }
  * }
  */
-router.post("/", createMealPlan);
+router.put("/:id", recipeValidationRules(), validate, updateRecipe);
 
 /**
  * #swagger.tags = ['MealPlans']
