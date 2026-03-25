@@ -20,7 +20,7 @@ const PORT = process.env.PORT || 3000;
 // Middleware FIRST
 app.use(express.json());
 
-// Root route
+// #swagger.ignore = true
 app.get("/", (req, res) => {
   res.send("Recipe API is running");
 });
