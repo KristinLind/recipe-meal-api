@@ -2,6 +2,8 @@ import express from "express";
 import dotenv from "dotenv";
 import { connectDB } from "./database/connection.js";
 import recipeRoutes from "./routes/recipes.js";
+import mealPlanRoutes from "./routes/mealPlans.js";
+
 import swaggerUi from "swagger-ui-express";
 import fs from "fs";
 import path from "path";
@@ -31,6 +33,7 @@ app.use("/recipes", (req, res, next) => {
 
 // Routes
 app.use("/recipes", recipeRoutes);
+app.use("/mealplans", mealPlanRoutes);
 
 // Swagger LAST
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
