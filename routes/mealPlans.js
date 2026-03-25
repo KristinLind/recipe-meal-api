@@ -26,14 +26,13 @@ router.get("/:id", getSingleMealPlan);
  * #swagger.summary = 'Create a new meal plan'
  * #swagger.parameters['body'] = {
  *   in: 'body',
- *   description: 'Meal plan object',
  *   required: true,
  *   schema: {
-        "day": "Monday",
-        "mealType": "Dinner",
-        "recipeId": "ObjectId",
-        "notes": "Family favorite"
-      }
+ *     day: "Monday",
+ *     mealType: "Dinner",
+ *     recipeId: "PUT_REAL_RECIPE_ID_HERE",
+ *     notes: "Family favorite"
+ *   }
  * }
  */
 router.post("/", createMealPlan);

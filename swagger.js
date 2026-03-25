@@ -8,7 +8,8 @@ const doc = {
     description: "API documentation for recipes and meal plans"
   },
   host: "cse341-node-r9gw.onrender.com",
-  schemes: ["https"]
+  schemes: ["https"],
+  basePath: "/"
 };
 
 const outputFile = "./swagger.json";
