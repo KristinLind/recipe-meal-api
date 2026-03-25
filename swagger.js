@@ -1,6 +1,6 @@
 import swaggerAutogen from "swagger-autogen";
 
-const swagger = swaggerAutogen({ openapi: "3.0.0" });
+const swagger = swaggerAutogen();
 
 const doc = {
   info: {
@@ -9,14 +9,14 @@ const doc = {
     version: "1.0.0"
   },
   host: "cse341-node-r9gw.onrender.com",
-  schemes: ["https"]
+  schemes: ["https"],
+  basePath: "/"
 };
 
 const outputFile = "./swagger.json";
 
 const endpointsFiles = [
-  "./routes/recipes.js",
-  "./routes/mealPlans.js"
+  "./server.js",           
 ];
 
 swagger(outputFile, endpointsFiles, doc);

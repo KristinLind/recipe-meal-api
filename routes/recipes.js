@@ -9,10 +9,9 @@ import {
 import {
   recipeValidationRules,
   validate
-} from "../middleware/validateRecipes.js"; 
+} from "../middleware/validateRecipes.js";
 
 const router = express.Router();
-console.log("Recipes routes loaded");
 
 /**
  * #swagger.tags = ['Recipes']
@@ -31,7 +30,6 @@ router.get("/:id", getSingleRecipe);
  * #swagger.summary = 'Create a new recipe'
  * #swagger.parameters['body'] = {
  *   in: 'body',
- *   description: 'Recipe object',
  *   required: true,
  *   schema: {
  *     name: "Chicken Alfredo",
@@ -51,7 +49,6 @@ router.post("/", recipeValidationRules(), validate, createRecipe);
  * #swagger.summary = 'Update a recipe'
  * #swagger.parameters['body'] = {
  *   in: 'body',
- *   description: 'Updated recipe',
  *   required: true,
  *   schema: {
  *     name: "Updated Recipe",
@@ -65,9 +62,6 @@ router.put("/:id", recipeValidationRules(), validate, updateRecipe);
 /**
  * #swagger.tags = ['Recipes']
  * #swagger.summary = 'Delete a recipe'
- * #swagger.responses[200] = {
- *   description: 'Recipe deleted successfully'
- * }
  */
 router.delete("/:id", deleteRecipe);
 
