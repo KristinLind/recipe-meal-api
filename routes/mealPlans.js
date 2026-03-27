@@ -24,6 +24,7 @@ router.get("/:id", getSingleMealPlan);
 /**
  * #swagger.tags = ['MealPlans']
  * #swagger.summary = 'Create a meal plan'
+ * #swagger.consumes = ['application/json']
  * #swagger.parameters['body'] = {
  *   in: 'body',
  *   required: true,
@@ -43,6 +44,7 @@ router.post("/", createMealPlan);
 /**
  * #swagger.tags = ['MealPlans']
  * #swagger.summary = 'Update a meal plan'
+ * #swagger.consumes = ['application/json']
  * #swagger.parameters['id'] = {
  *   in: 'path',
  *   required: true,
