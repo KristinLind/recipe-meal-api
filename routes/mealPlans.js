@@ -28,10 +28,13 @@ router.get("/:id", getSingleMealPlan);
  *   in: 'body',
  *   required: true,
  *   schema: {
- *     day: "Monday",
- *     mealType: "Dinner",
- *     recipeId: "PUT_REAL_RECIPE_ID",
- *     notes: "Family favorite"
+ *     type: 'object',
+ *     properties: {
+ *       day: { type: 'string', example: 'Monday' },
+ *       mealType: { type: 'string', example: 'Dinner' },
+ *       recipeId: { type: 'string', example: '65f123abc123abc123abc123' },
+ *       notes: { type: 'string', example: 'Family favorite' }
+ *     }
  *   }
  * }
  */
@@ -40,14 +43,22 @@ router.post("/", createMealPlan);
 /**
  * #swagger.tags = ['MealPlans']
  * #swagger.summary = 'Update a meal plan'
+ * #swagger.parameters['id'] = {
+ *   in: 'path',
+ *   required: true,
+ *   type: 'string'
+ * }
  * #swagger.parameters['body'] = {
  *   in: 'body',
  *   required: true,
  *   schema: {
- *     day: "Tuesday",
- *     mealType: "Lunch",
- *     recipeId: "PUT_REAL_RECIPE_ID",
- *     notes: "Updated note"
+ *     type: 'object',
+ *     properties: {
+ *       day: { type: 'string', example: 'Tuesday' },
+ *       mealType: { type: 'string', example: 'Lunch' },
+ *       recipeId: { type: 'string', example: '65f123abc123abc123abc123' },
+ *       notes: { type: 'string', example: 'Updated note' }
+ *     }
  *   }
  * }
  */
