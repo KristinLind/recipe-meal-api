@@ -48,7 +48,7 @@ router.get("/:id", getSingleRecipe);
  *     }
  *   }
  * }
- */outer.post("/", recipeValidationRules(), validate, createRecipe);
+ */router.post("/", recipeValidationRules(), validate, createRecipe);
 
 /**
  * #swagger.tags = ['Recipes']
