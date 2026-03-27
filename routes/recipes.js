@@ -32,32 +32,54 @@ router.get("/:id", getSingleRecipe);
  *   in: 'body',
  *   required: true,
  *   schema: {
- *     name: "Chicken Alfredo",
- *     ingredients: ["chicken", "pasta"],
- *     instructions: "Cook it",
- *     cookTime: 30,
- *     difficulty: "Medium",
- *     servings: 4,
- *     category: "Dinner"
+ *     type: 'object',
+ *     properties: {
+ *       name: { type: 'string', example: 'Chicken Alfredo' },
+ *       ingredients: {
+ *         type: 'array',
+ *         items: { type: 'string' },
+ *         example: ['chicken', 'pasta']
+ *       },
+ *       instructions: { type: 'string', example: 'Cook it' },
+ *       cookTime: { type: 'number', example: 30 },
+ *       difficulty: { type: 'string', example: 'Medium' },
+ *       servings: { type: 'number', example: 4 },
+ *       category: { type: 'string', example: 'Dinner' }
+ *     }
  *   }
  * }
- */
-router.post("/", recipeValidationRules(), validate, createRecipe);
+ */outer.post("/", recipeValidationRules(), validate, createRecipe);
 
 /**
  * #swagger.tags = ['Recipes']
  * #swagger.summary = 'Update a recipe'
+ * #swagger.parameters['id'] = {
+ *   in: 'path',
+ *   required: true,
+ *   type: 'string'
+ * }
  * #swagger.parameters['body'] = {
  *   in: 'body',
  *   required: true,
  *   schema: {
- *     name: "Updated Recipe",
- *     ingredients: ["new"],
- *     instructions: "Updated instructions"
+ *     type: 'object',
+ *     properties: {
+ *       name: { type: 'string', example: 'Updated Recipe' },
+ *       ingredients: {
+ *         type: 'array',
+ *         items: { type: 'string' },
+ *         example: ['new ingredient']
+ *       },
+ *       instructions: { type: 'string', example: 'Updated instructions' },
+ *       cookTime: { type: 'number', example: 25 },
+ *       difficulty: { type: 'string', example: 'Easy' },
+ *       servings: { type: 'number', example: 2 },
+ *       category: { type: 'string', example: 'Lunch' }
+ *     }
  *   }
  * }
  */
-router.put("/:id", recipeValidationRules(), validate, updateRecipe);
+router.put("/:id", recipeValidationRules(), validate, updateRecipe);router.put("/:id", recipeValidationRules(), validate, updateRecipe);
 
 /**
  * #swagger.tags = ['Recipes']
