@@ -11,62 +11,6 @@
     "https"
   ],
   "paths": {
-    "/": {
-      "get": {
-        "description": "",
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      },
-      "post": {
-        "tags": [
-          "MealPlans"
-        ],
-        "summary": "Create a meal plan",
-        "description": "",
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "type": "object",
-              "properties": {
-                "day": {
-                  "type": "string",
-                  "example": "Monday"
-                },
-                "mealType": {
-                  "type": "string",
-                  "example": "Dinner"
-                },
-                "recipeId": {
-                  "type": "string",
-                  "example": "123abc"
-                },
-                "notes": {
-                  "type": "string",
-                  "example": "Family favorite"
-                }
-              }
-            }
-          }
-        ],
-        "responses": {
-          "201": {
-            "description": "Created"
-          },
-          "400": {
-            "description": "Bad Request"
-          }
-        }
-      }
-    },
     "/recipes/": {
       "get": {
         "description": "",
@@ -522,6 +466,62 @@
           },
           "404": {
             "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/": {
+      "get": {
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "MealPlans"
+        ],
+        "summary": "Create a meal plan",
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "day": {
+                  "type": "string",
+                  "example": "Monday"
+                },
+                "mealType": {
+                  "type": "string",
+                  "example": "Dinner"
+                },
+                "recipeId": {
+                  "type": "string",
+                  "example": "123abc"
+                },
+                "notes": {
+                  "type": "string",
+                  "example": "Family favorite"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
           }
         }
       }
