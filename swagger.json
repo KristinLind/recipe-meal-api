@@ -24,7 +24,39 @@
         }
       },
       "post": {
+        "tags": [
+          "MealPlans"
+        ],
+        "summary": "Create a meal plan",
         "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "day": {
+                  "type": "string",
+                  "example": "Monday"
+                },
+                "mealType": {
+                  "type": "string",
+                  "example": "Dinner"
+                },
+                "recipeId": {
+                  "type": "string",
+                  "example": "123abc"
+                },
+                "notes": {
+                  "type": "string",
+                  "example": "Family favorite"
+                }
+              }
+            }
+          }
+        ],
         "responses": {
           "201": {
             "description": "Created"
@@ -48,7 +80,141 @@
         }
       },
       "post": {
+        "tags": [
+          "Recipes"
+        ],
+        "summary": "Create a new recipe",
         "description": "",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "object"
+                },
+                "properties": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "string"
+                        },
+                        "example": {
+                          "type": "string",
+                          "example": "Chicken Alfredo"
+                        }
+                      }
+                    },
+                    "ingredients": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "array"
+                        },
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "type": "string",
+                              "example": "string"
+                            }
+                          }
+                        },
+                        "example": {
+                          "type": "array",
+                          "example": [
+                            "chicken",
+                            "pasta"
+                          ],
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    },
+                    "instructions": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "string"
+                        },
+                        "example": {
+                          "type": "string",
+                          "example": "Cook it"
+                        }
+                      }
+                    },
+                    "cookTime": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "number"
+                        },
+                        "example": {
+                          "type": "number",
+                          "example": 30
+                        }
+                      }
+                    },
+                    "difficulty": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "string"
+                        },
+                        "example": {
+                          "type": "string",
+                          "example": "Medium"
+                        }
+                      }
+                    },
+                    "servings": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "number"
+                        },
+                        "example": {
+                          "type": "number",
+                          "example": 4
+                        }
+                      }
+                    },
+                    "category": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "string"
+                        },
+                        "example": {
+                          "type": "string",
+                          "example": "Dinner"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ],
         "responses": {
           "201": {
             "description": "Created"
@@ -83,13 +249,92 @@
         }
       },
       "put": {
+        "tags": [
+          "Recipes"
+        ],
+        "summary": "Update a recipe",
         "description": "",
+        "consumes": [
+          "application/json"
+        ],
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "object"
+                },
+                "properties": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "string"
+                        },
+                        "example": {
+                          "type": "string",
+                          "example": "Updated Recipe"
+                        }
+                      }
+                    },
+                    "ingredients": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "array"
+                        },
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "type": "string",
+                              "example": "string"
+                            }
+                          }
+                        },
+                        "example": {
+                          "type": "array",
+                          "example": [
+                            "new"
+                          ],
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    },
+                    "instructions": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "string"
+                        },
+                        "example": {
+                          "type": "string",
+                          "example": "Updated instructions"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
           }
         ],
         "responses": {
@@ -140,7 +385,39 @@
         }
       },
       "post": {
+        "tags": [
+          "MealPlans"
+        ],
+        "summary": "Create a meal plan",
         "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "day": {
+                  "type": "string",
+                  "example": "Monday"
+                },
+                "mealType": {
+                  "type": "string",
+                  "example": "Dinner"
+                },
+                "recipeId": {
+                  "type": "string",
+                  "example": "123abc"
+                },
+                "notes": {
+                  "type": "string",
+                  "example": "Family favorite"
+                }
+              }
+            }
+          }
+        ],
         "responses": {
           "201": {
             "description": "Created"
@@ -175,6 +452,10 @@
         }
       },
       "put": {
+        "tags": [
+          "MealPlans"
+        ],
+        "summary": "Update a meal plan",
         "description": "",
         "parameters": [
           {
@@ -182,6 +463,32 @@
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "day": {
+                  "type": "string",
+                  "example": "Tuesday"
+                },
+                "mealType": {
+                  "type": "string",
+                  "example": "Lunch"
+                },
+                "recipeId": {
+                  "type": "string",
+                  "example": "123abc"
+                },
+                "notes": {
+                  "type": "string",
+                  "example": "Updated note"
+                }
+              }
+            }
           }
         ],
         "responses": {
@@ -243,6 +550,10 @@
         }
       },
       "put": {
+        "tags": [
+          "MealPlans"
+        ],
+        "summary": "Update a meal plan",
         "description": "",
         "parameters": [
           {
@@ -250,6 +561,32 @@
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "day": {
+                  "type": "string",
+                  "example": "Tuesday"
+                },
+                "mealType": {
+                  "type": "string",
+                  "example": "Lunch"
+                },
+                "recipeId": {
+                  "type": "string",
+                  "example": "123abc"
+                },
+                "notes": {
+                  "type": "string",
+                  "example": "Updated note"
+                }
+              }
+            }
           }
         ],
         "responses": {
