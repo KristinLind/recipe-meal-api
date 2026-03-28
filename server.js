@@ -54,6 +54,10 @@ app.get("/auth/github/callback",
   }
 );
 
+app.get("/profile", (req, res) => {
+  res.json(req.user || "Not logged in");
+});
+
 app.get("/logout", (req, res) => {
   req.logout(() => {
     res.send("Logged out");
