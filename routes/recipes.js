@@ -10,6 +10,7 @@ import {
   recipeValidationRules,
   validate
 } from "../middleware/validateRecipes.js";
+import { ensureAuthenticated } from "../middleware/auth.js";
 
 const router = express.Router();
 
@@ -51,6 +52,7 @@ router.post(
        }
      }
   */
+  ensureAuthenticated,
   recipeValidationRules(),
   validate,
   createRecipe
@@ -83,15 +85,18 @@ router.put(
        }
      }
   */
+  ensureAuthenticated,
   recipeValidationRules(),
   validate,
-  updateRecipe
+  createRecipe
 );
 
 /**
  * #swagger.tags = ['Recipes']
  * #swagger.summary = 'Delete a recipe'
  */
-router.delete("/:id", deleteRecipe);
+router.delete("/:id", ensureAuthenticated, deleteRecipe);
+
+/* #swagger.description = 'Requires authentication' */
 
 export default router;

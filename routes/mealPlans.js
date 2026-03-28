@@ -6,6 +6,7 @@ import {
   updateMealPlan,
   deleteMealPlan
 } from "../controllers/mealPlanController.js";
+import { ensureAuthenticated } from "../middleware/auth.js";
 
 const router = express.Router();
 
@@ -36,6 +37,7 @@ router.post(
        }
      }
   */
+  ensureAuthenticated,
   createMealPlan
 );
 
@@ -59,6 +61,7 @@ router.put(
        }
      }
   */
+  ensureAuthenticated,
   updateMealPlan
 );
 
@@ -66,6 +69,6 @@ router.put(
  * #swagger.tags = ['MealPlans']
  * #swagger.summary = 'Delete a meal plan'
  */
-router.delete("/:id", deleteMealPlan);
+router.delete("/:id", ensureAuthenticated, deleteMealPlan);
 
 export default router;
