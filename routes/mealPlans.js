@@ -37,7 +37,7 @@ router.post(
        }
      }
   */
-  ensureAuthenticated,
+  // ensureAuthenticated,
   createMealPlan
 );
 
