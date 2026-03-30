@@ -7,6 +7,10 @@ import {
   deleteMealPlan
 } from "../controllers/mealPlanController.js";
 import { ensureAuthenticated } from "../middleware/auth.js";
+import {
+  mealPlanValidationRules, validate
+  
+} from "../middleware/validateMealPlans.js";
 
 const router = express.Router();
 
@@ -37,7 +41,9 @@ router.post(
        }
      }
   */
-  // ensureAuthenticated,
+  ensureAuthenticated,
+  mealPlanValidationRules(),
+  validate,
   createMealPlan
 );
 
@@ -62,6 +68,8 @@ router.put(
      }
   */
   ensureAuthenticated,
+  mealPlanValidationRules(),
+  validate,
   updateMealPlan
 );
 

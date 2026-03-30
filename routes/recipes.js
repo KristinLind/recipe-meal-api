@@ -88,7 +88,7 @@ router.put(
   ensureAuthenticated,
   recipeValidationRules(),
   validate,
-  createRecipe
+  updateRecipe
 );
 
 /**
