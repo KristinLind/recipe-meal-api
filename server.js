@@ -50,7 +50,7 @@ app.get("/auth/github/callback",
   }),
   (req, res) => {
     console.log("USER:", req.user);
-    res.send("Logged in successfully");
+    res.redirect("/api-docs");
   }
 );
 
@@ -60,7 +60,7 @@ app.get("/profile", (req, res) => {
 
 app.get("/logout", (req, res) => {
   req.logout(() => {
-    res.send("Logged out");
+    res.redirect("/");
   });
 });
 
