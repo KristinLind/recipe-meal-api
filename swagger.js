@@ -16,7 +16,6 @@ const doc = {
 const outputFile = "./swagger.json";
 
 const endpointsFiles = [
-  "./server.js",
   "./routes/recipes.js",
   "./routes/mealPlans.js"
 ];
