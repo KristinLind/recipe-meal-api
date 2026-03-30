@@ -1,2 +1,13 @@
 node_modules
+
+# Environment variables - NEVER commit this
 .env
+
+# Node modules - too large to commit
+node_modules/
+
+# Mac system files
+.DS_Store
+
+# Logs
+npm-debug.log*
